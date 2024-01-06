@@ -16,6 +16,7 @@ var FACE_ID = process.env.FACE_ID || "";
 var FACE_SECRET = process.env.FACE_SECRET || "";
 var GoogleStrategy = passport_google_oauth20_1.default.Strategy;
 var FacebookStrategy = passport_facebook_1.default.Strategy;
+var a = 1;
 function baseProcess(medio) {
     return function (accessToken, refreshToken, profile, done) {
         //console.log("Conectado google",profile)
@@ -30,13 +31,13 @@ function baseProcess(medio) {
 var GoogleInstance = new GoogleStrategy({
     clientID: GOOGLE_ID,
     clientSecret: GOOGLE_SECRET,
-    callbackURL: "/auth/google/redirect",
+    callbackURL: "https://login-4sme.onrender.com/auth/google/redirect",
     scope: ['profile', 'email']
 }, baseProcess("Google"));
 var FacebookInstance = new FacebookStrategy({
     clientID: FACE_ID,
     clientSecret: FACE_SECRET,
-    callbackURL: "/auth/facebook/redirect",
+    callbackURL: "https://login-4sme.onrender.com/auth/facebook/redirect",
     profileFields: ['id', 'displayName', 'email', 'gender']
 }, baseProcess("Facebook"));
 passport_1.default.serializeUser(function (user, done) { done(null, user); });

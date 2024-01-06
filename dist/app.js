@@ -68,9 +68,10 @@ var express_session_1 = __importDefault(require("express-session"));
 var passport_1 = require("./passport");
 function initServer() {
     return __awaiter(this, void 0, void 0, function () {
-        var app;
+        var app, a;
         return __generator(this, function (_a) {
             app = (0, express_1.default)();
+            a = 1;
             app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
             app.use((0, express_session_1.default)({ secret: 'tu_clave_secreta_aquí', resave: false, saveUninitialized: false }));
             app.get('/logingoogle', passport_1.passport.authenticate("google"));
